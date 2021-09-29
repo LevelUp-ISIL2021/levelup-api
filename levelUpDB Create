@@ -1,0 +1,23 @@
+use levelup
+
+db.users.insert({
+	"type" : ["admin","teacher","parent"],
+	"firstName" : "Milton",
+	"lastNameFather" : "Garcia",
+	"lastName" : "Diaz",
+	"dni" : "44335934",
+	"email" : "miltongd.07@gmail.com",
+	"password" : "123456",
+	"phoneNumber" : "962466703",
+	"picture" : "pic1",
+	"updateAt" : new Date("29/09/2021"),
+	"createdAt" : new Date("29/09/2021")
+})
+
+db.reviews.insert({
+	"userId" : "miltongd.07@gmail.com",
+	"content" : "Excelente experiencia de juego",
+	"approved" : true,
+	"updateAt" : new Date("29/09/2021"),
+	"createdAt" : new Date("29/09/2021")
+})
