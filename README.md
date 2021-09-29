@@ -9,6 +9,11 @@ mongod
 mongo
 DAMOS ENTER EN mongod y en la ventana mongo debe estar recien conectado
 ------------------------------------------------------------------------------------------------------------------------
+COMANDO PARA HACER CAMBIOS DESDE LA CONSOLA PERO CONECTADO AL ATLAS
+mongo "mongodb+srv://cluster0.t8if7.mongodb.net/myfirstdb" --username root
+
+---> la contraseña de conexión es con el usuario root es "root"
+------------------------------------------------------------------------------------------------------------------------
 show dbs   --> COMANDO PARA VER LAS BD EXISTENTES
 db  -->  COMANDO PARA VER EN QUE BD TE ENCUENTRAS
 show collections  --> COMANDO PARA VER LAS COLECCIONES QUE TIENE LA BD
