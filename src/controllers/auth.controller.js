@@ -5,10 +5,10 @@ import Role from '../models/Role';
 
 export const signUp = async (req,res) => {
 
-    const {username, firstname, lastnamefather, lastnamemother,dni, email, password, phonenumber, picture, roles} = req.body;
+    const {/*username,*/ firstname, lastnamefather, lastnamemother,dni, email, password, phonenumber, picture, roles} = req.body;
 
     const newUser = new User({
-        username,
+        /*username,*/
         firstname,
         lastnamefather,
         lastnamemother,

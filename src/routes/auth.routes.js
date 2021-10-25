@@ -4,7 +4,7 @@ const router = Router()
 import * as authCtrl from '../controllers/auth.controller'
 import {verifySignup} from '../middlewares'
 
-router.post('/signup', [verifySignup.checkDuplicateUsernameOrEmail, verifySignup.checkRolesExisted], authCtrl.signUp)
+router.post('/signup', [verifySignup.checkDuplicateDniOrEmail, verifySignup.checkRolesExisted], authCtrl.signUp)
 
 router.post('/signin', authCtrl.signIn)
 
