@@ -15,10 +15,11 @@ export const verifyToken = async (req, res, next) => {
     const decoded = jwt.verify(token,config.SECRET);
     req.userId = decoded.id;
     
+    
     const user = await User.findById(req.userId, {password: 0});
     //console.log(user)
     if(!user) return res.status(404).json({message: 'no user found'});
-
+    req.user = user;   
     next();
     } catch (error) {
         return res.status(401).json({message: 'Unauthorized'})
