@@ -1,5 +1,6 @@
 import express from 'express'
 import morgan from 'morgan'
+import cors from 'cors'
 import pkg from '../package.json'
 
 import {createRoles} from './libs/initialSetup'
@@ -16,6 +17,8 @@ app.set('pkg', pkg);
 
 app.use(morgan('dev'));
 app.use(express.json());
+
+app.use(cors({ origin: '*', optionsSuccessStatus: 200, credentials: true }));
 
 app.get('/', (req, res) =>{
     res.json({
