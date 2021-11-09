@@ -7,18 +7,20 @@ export const createReview = async (req, res) => {
 
     const newReview = new Review({content, approved, imgURL});
 
+    newReview.user = req.user.id;
+
     const reviewSaved = await newReview.save()
 
     res.status(201).json(reviewSaved)
 }
 
 export const getReviews = async (req, res) => {
-    const reviews = await Review.find();
+    const reviews = await Review.find().populate("user", {firstname:1, lastnamefather:1, lastnamemother:1, picture:1});
     res.json(reviews)
 }
 
 export const getReviewById = async (req, res) => {
-    const review = await Review.findById(req.params.reviewId);
+    const review = await Review.findById(req.params.reviewId).populate("user", {firstname:1, lastnamefather:1, lastnamemother:1, picture:1});
     res.status(200).json(review)  
 }
 

@@ -4,7 +4,7 @@ const router = Router();
 import * as reviewsCtrl from "../controllers/reviews.controller";
 import { authJwt } from "../middlewares";
 
-router.post("/", [authJwt.verifyToken, authJwt.isModerator], reviewsCtrl.createReview);
+router.post("/", [authJwt.verifyToken/*, authJwt.isModerator*/], reviewsCtrl.createReview);
 
 router.get("/", reviewsCtrl.getReviews);
 
