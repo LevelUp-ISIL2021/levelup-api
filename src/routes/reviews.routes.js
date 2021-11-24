@@ -8,6 +8,8 @@ router.post("/", [authJwt.verifyToken/*, authJwt.isModerator*/], reviewsCtrl.cre
 
 router.get("/", reviewsCtrl.getReviews);
 
+router.get("/user/:userId", reviewsCtrl.getReviewsByUserId);
+
 router.get('/:reviewId', reviewsCtrl.getReviewById);
 
 router.put("/:reviewId", [authJwt.verifyToken, authJwt.isAdmin], reviewsCtrl.updateReviewById);

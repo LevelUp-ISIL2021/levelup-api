@@ -1,3 +1,4 @@
+import { Types } from 'mongoose';
 import Review from '../models/Review'
 
 export const createReview = async (req, res) => {
@@ -15,7 +16,12 @@ export const createReview = async (req, res) => {
 }
 
 export const getReviews = async (req, res) => {
-    const reviews = await Review.find().populate("user", {firstname:1, lastnamefather:1, lastnamemother:1, picture:1});
+    const reviews = await Review.find().populate("user", {firstname:1, lastnamefather:1, lastnamemother:1, picture:1}).sort({ createdAt: -1 });
+    res.json(reviews)
+}
+
+export const getReviewsByUserId = async (req, res) => {
+    const reviews = await Review.find({ user: Types.ObjectId(req.params.userId) }).populate("user", {firstname:1, lastnamefather:1, lastnamemother:1, picture:1}).sort({ createdAt: -1 });
     res.json(reviews)
 }
 
